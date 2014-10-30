@@ -1,4 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars.runtime.js":[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars.runtime.js":[function(require,module,exports){
 "use strict";
 /*globals Handlebars: true */
 var base = require("./handlebars/base");
@@ -31,7 +31,7 @@ var Handlebars = create();
 Handlebars.create = create;
 
 exports["default"] = Handlebars;
-},{"./handlebars/base":"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars/base.js","./handlebars/exception":"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars/exception.js","./handlebars/runtime":"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars/runtime.js","./handlebars/safe-string":"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars/safe-string.js","./handlebars/utils":"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars/utils.js"}],"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars/base.js":[function(require,module,exports){
+},{"./handlebars/base":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/base.js","./handlebars/exception":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/exception.js","./handlebars/runtime":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/runtime.js","./handlebars/safe-string":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/safe-string.js","./handlebars/utils":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/utils.js"}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/base.js":[function(require,module,exports){
 "use strict";
 var Utils = require("./utils");
 var Exception = require("./exception")["default"];
@@ -212,7 +212,7 @@ exports.log = log;var createFrame = function(object) {
   return obj;
 };
 exports.createFrame = createFrame;
-},{"./exception":"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars/exception.js","./utils":"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars/utils.js"}],"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars/exception.js":[function(require,module,exports){
+},{"./exception":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/exception.js","./utils":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/utils.js"}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/exception.js":[function(require,module,exports){
 "use strict";
 
 var errorProps = ['description', 'fileName', 'lineNumber', 'message', 'name', 'number', 'stack'];
@@ -241,7 +241,7 @@ function Exception(message, node) {
 Exception.prototype = new Error();
 
 exports["default"] = Exception;
-},{}],"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars/runtime.js":[function(require,module,exports){
+},{}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/runtime.js":[function(require,module,exports){
 "use strict";
 var Utils = require("./utils");
 var Exception = require("./exception")["default"];
@@ -379,7 +379,7 @@ exports.program = program;function invokePartial(partial, name, context, helpers
 exports.invokePartial = invokePartial;function noop() { return ""; }
 
 exports.noop = noop;
-},{"./base":"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars/base.js","./exception":"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars/exception.js","./utils":"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars/utils.js"}],"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars/safe-string.js":[function(require,module,exports){
+},{"./base":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/base.js","./exception":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/exception.js","./utils":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/utils.js"}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/safe-string.js":[function(require,module,exports){
 "use strict";
 // Build out our basic SafeString type
 function SafeString(string) {
@@ -391,7 +391,7 @@ SafeString.prototype.toString = function() {
 };
 
 exports["default"] = SafeString;
-},{}],"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars/utils.js":[function(require,module,exports){
+},{}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/utils.js":[function(require,module,exports){
 "use strict";
 /*jshint -W004 */
 var SafeString = require("./safe-string")["default"];
@@ -468,15 +468,15 @@ exports.escapeExpression = escapeExpression;function isEmpty(value) {
 }
 
 exports.isEmpty = isEmpty;
-},{"./safe-string":"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars/safe-string.js"}],"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/runtime.js":[function(require,module,exports){
+},{"./safe-string":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/safe-string.js"}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/runtime.js":[function(require,module,exports){
 // Create a simple path alias to allow browserify to resolve
 // the runtime on a supported path.
 module.exports = require('./dist/cjs/handlebars.runtime');
 
-},{"./dist/cjs/handlebars.runtime":"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/dist/cjs/handlebars.runtime.js"}],"/Users/seanzellmer/haxfred-link-app/node_modules/hbsfy/runtime.js":[function(require,module,exports){
+},{"./dist/cjs/handlebars.runtime":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars.runtime.js"}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/hbsfy/runtime.js":[function(require,module,exports){
 module.exports = require("handlebars/runtime")["default"];
 
-},{"handlebars/runtime":"/Users/seanzellmer/haxfred-link-app/node_modules/handlebars/runtime.js"}],"/Users/seanzellmer/haxfred-link-app/node_modules/superagent/lib/client.js":[function(require,module,exports){
+},{"handlebars/runtime":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/runtime.js"}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/superagent/lib/client.js":[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -1554,7 +1554,7 @@ request.put = function(url, data, fn){
 
 module.exports = request;
 
-},{"emitter":"/Users/seanzellmer/haxfred-link-app/node_modules/superagent/node_modules/component-emitter/index.js","reduce":"/Users/seanzellmer/haxfred-link-app/node_modules/superagent/node_modules/reduce-component/index.js"}],"/Users/seanzellmer/haxfred-link-app/node_modules/superagent/node_modules/component-emitter/index.js":[function(require,module,exports){
+},{"emitter":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/superagent/node_modules/component-emitter/index.js","reduce":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/superagent/node_modules/reduce-component/index.js"}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/superagent/node_modules/component-emitter/index.js":[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -1720,7 +1720,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],"/Users/seanzellmer/haxfred-link-app/node_modules/superagent/node_modules/reduce-component/index.js":[function(require,module,exports){
+},{}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/superagent/node_modules/reduce-component/index.js":[function(require,module,exports){
 
 /**
  * Reduce `arr` with `fn`.
@@ -1745,15 +1745,15 @@ module.exports = function(arr, fn, initial){
   
   return curr;
 };
-},{}],"/Users/seanzellmer/haxfred-link-app/public/js/app.js":[function(require,module,exports){
+},{}],"/Users/blade/haxiom/haxfred-link-webapp/public/js/app.js":[function(require,module,exports){
 var Link = require('./lib/link');
 
 var link = new Link('#log');
 
 link.get();
 
-},{"./lib/link":"/Users/seanzellmer/haxfred-link-app/public/js/lib/link.js"}],"/Users/seanzellmer/haxfred-link-app/public/js/lib/link.js":[function(require,module,exports){
-var ENDPOINT = 'http://192.168.1.33:3000/api/links'
+},{"./lib/link":"/Users/blade/haxiom/haxfred-link-webapp/public/js/lib/link.js"}],"/Users/blade/haxiom/haxfred-link-webapp/public/js/lib/link.js":[function(require,module,exports){
+var ENDPOINT = 'http://localhost:3000/api/links'
 var template = require('../templates/link-template.hbs')
 var xhr = require('superagent');
 
@@ -1761,12 +1761,14 @@ var templates = {
   'article': function (model) {
     return '<a class="article" href="'+ model.url +'">' + model.url + '</a>';
   },
-//   'vimeo': function (model) {
-//
-//   },
-//   'youtube': function (model) {
-//
-//   },
+   'vimeo': function (model) {
+      var vimeoID = model.url.replace(/http(s)?:\/\/(www.)?vimeo.com\//g, "");
+      return '<iframe src="//player.vimeo.com/video/' + vimeoID + '?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;color=ffffff" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
+   },
+   'youtube': function (model) {
+      var youtubeID = model.url.replace(/http(s)?:\/\/(www.)?youtu(.)?be(.com)?\/(watch\?v=)?/g, "");
+      return '<iframe width="560" height="315" src="//www.youtube.com/embed/' + youtubeID + '" frameborder="0" allowfullscreen></iframe>';
+   },
    'image': function (model) {
      return '<img src="' + model.url + '">';
    }
@@ -1799,13 +1801,14 @@ Link.prototype.get = function () {
       _order: 'createdAt DESC'
     })
     .end(function (err, response) {
+      console.log(response.body);
       this.render(response.body);
     }.bind(this));
 }
 
 module.exports = Link;
 
-},{"../templates/link-template.hbs":"/Users/seanzellmer/haxfred-link-app/public/js/templates/link-template.hbs","superagent":"/Users/seanzellmer/haxfred-link-app/node_modules/superagent/lib/client.js"}],"/Users/seanzellmer/haxfred-link-app/public/js/templates/link-template.hbs":[function(require,module,exports){
+},{"../templates/link-template.hbs":"/Users/blade/haxiom/haxfred-link-webapp/public/js/templates/link-template.hbs","superagent":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/superagent/lib/client.js"}],"/Users/blade/haxiom/haxfred-link-webapp/public/js/templates/link-template.hbs":[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -1830,4 +1833,4 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":"/Users/seanzellmer/haxfred-link-app/node_modules/hbsfy/runtime.js"}]},{},["/Users/seanzellmer/haxfred-link-app/public/js/app.js"]);
+},{"hbsfy/runtime":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/hbsfy/runtime.js"}]},{},["/Users/blade/haxiom/haxfred-link-webapp/public/js/app.js"]);
