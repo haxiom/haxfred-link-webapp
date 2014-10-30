@@ -1,4 +1,4 @@
-var ENDPOINT = 'http://192.168.1.33:3000/api/links'
+var ENDPOINT = 'http://localhost:3000/api/links'
 var template = require('../templates/link-template.hbs')
 var xhr = require('superagent');
 
