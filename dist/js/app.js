@@ -1,4 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars.runtime.js":[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 /*globals Handlebars: true */
 var base = require("./handlebars/base");
@@ -31,7 +31,7 @@ var Handlebars = create();
 Handlebars.create = create;
 
 exports["default"] = Handlebars;
-},{"./handlebars/base":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/base.js","./handlebars/exception":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/exception.js","./handlebars/runtime":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/runtime.js","./handlebars/safe-string":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/safe-string.js","./handlebars/utils":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/utils.js"}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/base.js":[function(require,module,exports){
+},{"./handlebars/base":2,"./handlebars/exception":3,"./handlebars/runtime":4,"./handlebars/safe-string":5,"./handlebars/utils":6}],2:[function(require,module,exports){
 "use strict";
 var Utils = require("./utils");
 var Exception = require("./exception")["default"];
@@ -212,7 +212,7 @@ exports.log = log;var createFrame = function(object) {
   return obj;
 };
 exports.createFrame = createFrame;
-},{"./exception":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/exception.js","./utils":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/utils.js"}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/exception.js":[function(require,module,exports){
+},{"./exception":3,"./utils":6}],3:[function(require,module,exports){
 "use strict";
 
 var errorProps = ['description', 'fileName', 'lineNumber', 'message', 'name', 'number', 'stack'];
@@ -241,7 +241,7 @@ function Exception(message, node) {
 Exception.prototype = new Error();
 
 exports["default"] = Exception;
-},{}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/runtime.js":[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 "use strict";
 var Utils = require("./utils");
 var Exception = require("./exception")["default"];
@@ -379,7 +379,7 @@ exports.program = program;function invokePartial(partial, name, context, helpers
 exports.invokePartial = invokePartial;function noop() { return ""; }
 
 exports.noop = noop;
-},{"./base":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/base.js","./exception":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/exception.js","./utils":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/utils.js"}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/safe-string.js":[function(require,module,exports){
+},{"./base":2,"./exception":3,"./utils":6}],5:[function(require,module,exports){
 "use strict";
 // Build out our basic SafeString type
 function SafeString(string) {
@@ -391,7 +391,7 @@ SafeString.prototype.toString = function() {
 };
 
 exports["default"] = SafeString;
-},{}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/utils.js":[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 "use strict";
 /*jshint -W004 */
 var SafeString = require("./safe-string")["default"];
@@ -468,15 +468,15 @@ exports.escapeExpression = escapeExpression;function isEmpty(value) {
 }
 
 exports.isEmpty = isEmpty;
-},{"./safe-string":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars/safe-string.js"}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/runtime.js":[function(require,module,exports){
+},{"./safe-string":5}],7:[function(require,module,exports){
 // Create a simple path alias to allow browserify to resolve
 // the runtime on a supported path.
 module.exports = require('./dist/cjs/handlebars.runtime');
 
-},{"./dist/cjs/handlebars.runtime":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/dist/cjs/handlebars.runtime.js"}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/hbsfy/runtime.js":[function(require,module,exports){
+},{"./dist/cjs/handlebars.runtime":1}],8:[function(require,module,exports){
 module.exports = require("handlebars/runtime")["default"];
 
-},{"handlebars/runtime":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/handlebars/runtime.js"}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/superagent/lib/client.js":[function(require,module,exports){
+},{"handlebars/runtime":7}],9:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -1554,7 +1554,7 @@ request.put = function(url, data, fn){
 
 module.exports = request;
 
-},{"emitter":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/superagent/node_modules/component-emitter/index.js","reduce":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/superagent/node_modules/reduce-component/index.js"}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/superagent/node_modules/component-emitter/index.js":[function(require,module,exports){
+},{"emitter":10,"reduce":11}],10:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -1720,7 +1720,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],"/Users/blade/haxiom/haxfred-link-webapp/node_modules/superagent/node_modules/reduce-component/index.js":[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 
 /**
  * Reduce `arr` with `fn`.
@@ -1745,14 +1745,14 @@ module.exports = function(arr, fn, initial){
   
   return curr;
 };
-},{}],"/Users/blade/haxiom/haxfred-link-webapp/public/js/app.js":[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 var Link = require('./lib/link');
 
 var link = new Link('#log');
 
 link.get();
 
-},{"./lib/link":"/Users/blade/haxiom/haxfred-link-webapp/public/js/lib/link.js"}],"/Users/blade/haxiom/haxfred-link-webapp/public/js/lib/link.js":[function(require,module,exports){
+},{"./lib/link":13}],13:[function(require,module,exports){
 var ENDPOINT = 'http://localhost:3000/api/links'
 var template = require('../templates/link-template.hbs')
 var xhr = require('superagent');
@@ -1801,14 +1801,13 @@ Link.prototype.get = function () {
       _order: 'createdAt DESC'
     })
     .end(function (err, response) {
-      console.log(response.body);
       this.render(response.body);
     }.bind(this));
 }
 
 module.exports = Link;
 
-},{"../templates/link-template.hbs":"/Users/blade/haxiom/haxfred-link-webapp/public/js/templates/link-template.hbs","superagent":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/superagent/lib/client.js"}],"/Users/blade/haxiom/haxfred-link-webapp/public/js/templates/link-template.hbs":[function(require,module,exports){
+},{"../templates/link-template.hbs":14,"superagent":9}],14:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -1833,4 +1832,4 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-},{"hbsfy/runtime":"/Users/blade/haxiom/haxfred-link-webapp/node_modules/hbsfy/runtime.js"}]},{},["/Users/blade/haxiom/haxfred-link-webapp/public/js/app.js"]);
+},{"hbsfy/runtime":8}]},{},[12]);
