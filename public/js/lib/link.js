@@ -46,7 +46,6 @@ Link.prototype.get = function () {
       _order: 'createdAt DESC'
     })
     .end(function (err, response) {
-      console.log(response.body);
       this.render(response.body);
     }.bind(this));
 }
