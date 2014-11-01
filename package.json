@@ -4,9 +4,12 @@
   "description": "---",
   "main": "index.js",
   "scripts": {
+    "start": "npm run build && node index.js",
+    "dev": "npm run build:watch & node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify public/js/app.js -o dist/js/app.js",
-    "build:watch": "watchify public/js/app.js -o dist/js/app.js"
+    "build": "npm run clean && browserify public/js/app.js -o dist/js/app.js",
+    "build:watch": "watchify public/js/app.js -o dist/js/app.js",
+    "clean": "rm -rf dist && mkdir -p dist/{css,js}"
   },
   "browserify": {
     "transform": [
