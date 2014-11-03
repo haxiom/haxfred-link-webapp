@@ -1,4 +1,4 @@
-var ENDPOINT = 'http://192.168.1.33:3000/api/links'
+var ENDPOINT = 'http://localhost:3000/api/links'
 var template = require('../templates/link-template.hbs')
 var xhr = require('superagent');
 
@@ -6,12 +6,14 @@ var templates = {
   'article': function (model) {
     return '<a class="article" href="'+ model.url +'">' + model.url + '</a>';
   },
-//   'vimeo': function (model) {
-//
-//   },
-//   'youtube': function (model) {
-//
-//   },
+   'vimeo': function (model) {
+      var vimeoID = model.url.replace(/http(s)?:\/\/(www.)?vimeo.com\//g, "");
+      return '<iframe src="//player.vimeo.com/video/' + vimeoID + '?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;color=ffffff" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
+   },
+   'youtube': function (model) {
+      var youtubeID = model.url.replace(/http(s)?:\/\/(www.)?youtu(.)?be(.com)?\/(watch\?v=)?/g, "");
+      return '<iframe width="560" height="315" src="//www.youtube.com/embed/' + youtubeID + '" frameborder="0" allowfullscreen></iframe>';
+   },
    'image': function (model) {
      return '<img src="' + model.url + '">';
    }
