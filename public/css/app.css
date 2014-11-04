@@ -22,6 +22,7 @@ a, a:visited, a:hover {
 
 #wrapper {
  background: #fff1d3;
+ overflow: auto;
 }
 
 .left-side, .right-side {
