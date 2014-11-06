@@ -12,7 +12,7 @@ Items.prototype.get = function (options) {
     .query({
       _offset: options.offset || 0,
       _limit: options.limit || 3,
-      _order: 'createdAt DESC'
+      _order: 'postDate DESC'
     })
     .end(function (err, response) {
       if (err) {
