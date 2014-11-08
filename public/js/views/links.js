@@ -45,7 +45,9 @@ Link.prototype.render = function (links) {
       div.innerHTML= template({
         content: templates[link.type](link),
         user: link.user,
-        caption: link.caption
+        caption: link.caption,
+        date: Link.prototype.parseDate(link.postDate),
+        time: Link.prototype.parseTime(link.postDate)
       });
     }
 
@@ -54,7 +56,45 @@ Link.prototype.render = function (links) {
     return fragment;
   }.bind(this), document.createDocumentFragment());
 
+
   this.el.appendChild(fragment.cloneNode(true));
 };
+
+Link.prototype.parseDate = function(utc) {
+  var date = new Date(utc);
+  return (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
+};
+
+Link.prototype.parseTime = function(utc) {
+  var date = new Date(utc),
+      hours = date.getHours(),
+      minutes = date.getMinutes(),
+      period = 'am';
+
+  if (hours > 12) {
+    hours = hours - 12;
+    period = 'pm';
+  } else if (hours == 0) {
+    hours = 12;
+  }
+
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+
+  return hours + ':' + minutes + period;
+}
+
+Link.prototype.get = function () {
+  xhr.get(ENDPOINT)
+    .query({
+      _limit: 10,
+      _order: 'createdAt DESC'
+    })
+    .end(function (err, response) {
+      this.render(response.body);
+    }.bind(this));
+}
+
 
 module.exports = Link;
