@@ -1,7 +1,7 @@
 'use strict';
 
-var Model = require('./models/items');
-var LinksView = require('./views/items');
+var Model = require('./models/links');
+var LinksView = require('./views/links');
 var ListView  = require('./views/list');
 var events = require('./lib/events');
 var linkOffset = 0;
