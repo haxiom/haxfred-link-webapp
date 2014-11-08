@@ -45,7 +45,9 @@ Link.prototype.render = function (links) {
       div.innerHTML= template({
         content: templates[link.type](link),
         user: link.user,
-        caption: link.caption
+        caption: link.caption,
+        date: this.parseDate(link.postDate),
+        time: this.parseTime(link.postDate)
       });
     }
 
@@ -56,5 +58,30 @@ Link.prototype.render = function (links) {
 
   this.el.appendChild(fragment.cloneNode(true));
 };
+
+Link.prototype.parseDate = function(utc) {
+  var date = new Date(utc);
+  return (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
+};
+
+Link.prototype.parseTime = function(utc) {
+  var date = new Date(utc),
+      hours = date.getHours(),
+      minutes = date.getMinutes(),
+      period = 'am';
+
+  if (hours > 12) {
+    hours = hours - 12;
+    period = 'pm';
+  } else if (hours == 0) {
+    hours = 12;
+  }
+
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+
+  return hours + ':' + minutes + period;
+}
 
 module.exports = Link;
