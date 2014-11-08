@@ -84,16 +84,4 @@ Link.prototype.parseTime = function(utc) {
   return hours + ':' + minutes + period;
 }
 
-Link.prototype.get = function () {
-  xhr.get(ENDPOINT)
-    .query({
-      _limit: 10,
-      _order: 'createdAt DESC'
-    })
-    .end(function (err, response) {
-      this.render(response.body);
-    }.bind(this));
-}
-
-
 module.exports = Link;
