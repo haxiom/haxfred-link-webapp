@@ -56,7 +56,6 @@ Link.prototype.render = function (links) {
     return fragment;
   }.bind(this), document.createDocumentFragment());
 
-
   this.el.appendChild(fragment.cloneNode(true));
 };
 
