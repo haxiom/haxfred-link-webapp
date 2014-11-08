@@ -46,8 +46,8 @@ Link.prototype.render = function (links) {
         content: templates[link.type](link),
         user: link.user,
         caption: link.caption,
-        date: Link.prototype.parseDate(link.postDate),
-        time: Link.prototype.parseTime(link.postDate)
+        date: this.parseDate(link.postDate),
+        time: this.parseTime(link.postDate)
       });
     }
 
