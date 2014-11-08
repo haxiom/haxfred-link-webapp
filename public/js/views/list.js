@@ -1,6 +1,7 @@
 'use strict';
 
 var events = require('../lib/events');
+var throttle = require('lodash.throttle');
 
 function List () {
   this.attachEvents();
@@ -8,8 +9,9 @@ function List () {
 }
 
 List.prototype.attachEvents = function () {
-  window.addEventListener('scroll', this.handleScroll.bind(this));
-  events.on('data:links', this.handleScroll.bind(this));
+  var handler = throttle(this.handleScroll.bind(this), 300);
+  window.addEventListener('scroll', handler);
+  events.on('data:links', handler);
 };
 
 List.prototype.calculateDocumentHeight = function () {
