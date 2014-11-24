@@ -10,7 +10,7 @@
     "build": "npm run clean && browserify public/js/app.js -o dist/js/app.js",
     "build:production": "npm run clean && browserify public/js/app.js | uglifyjs > dist/js/app.js",
     "build:watch": "watchify public/js/app.js -o dist/js/app.js",
-    "clean": "rm -rf dist && mkdir -p dist/{css,js}"
+    "clean": "rm -rf dist && mkdir -p dist/css dist/js"
   },
   "browserify": {
     "transform": [

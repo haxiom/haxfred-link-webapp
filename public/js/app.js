@@ -18,6 +18,6 @@ events.on('requestLinks', function () {
   linkOffset = linkOffset + step;
 });
 
-var model = new Model({endpoint: 'http://localhost:3000/api/links'});
+var model = new Model({endpoint: 'http://benicio.haxiom.io/api/links'});
 new LinksView('#log');
 new ListView();
