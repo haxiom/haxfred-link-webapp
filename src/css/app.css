@@ -1,0 +1,13 @@
+#content {
+  margin-top: 100px;
+}
+
+#haxfred-card {
+  margin-top: 50px;
+}
+
+@media screen and (min-width: 1200px) {
+  #haxfred-card {
+    position: fixed;
+  }
+}
