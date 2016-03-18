@@ -8,7 +8,7 @@ app.use(express.static('dist'))
 app.use(express.static('public'))
 
 app.get('/', function (req, res) {
-  res.sendfile('./views/index.html')
+  res.sendFile(__dirname + '/views/index.html')
 })
 
 app.listen(PORT, function () {
