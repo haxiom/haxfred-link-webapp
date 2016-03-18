@@ -8,10 +8,10 @@
     "dev": "npm run build:watch & node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "standard | snazzy",
-    "build": "npm run clean && browserify public/js/app.js -o dist/js/app.js",
-    "build:production": "npm run clean && browserify public/js/app.js | uglifyjs > dist/js/app.js",
-    "build:watch": "watchify public/js/app.js -o dist/js/app.js",
-    "clean": "rm -rf dist && mkdir -p dist/css dist/js"
+    "build": "npm run clean && browserify src/js/app.js -o dist/js/app.js && cp src/css/* dist/css/",
+    "build:production": "npm run clean && browserify src/js/app.js | uglifyjs > dist/js/app.js",
+    "build:watch": "watchify src/js/app.js -o dist/js/app.js",
+    "clean": "rm -rf dist/js dist/css && mkdir -p dist/css dist/js"
   },
   "browserify": {
     "transform": [
