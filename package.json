@@ -7,6 +7,7 @@
     "start": "npm run build && node index.js",
     "dev": "npm run build:watch & node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard | snazzy",
     "build": "npm run clean && browserify public/js/app.js -o dist/js/app.js",
     "build:production": "npm run clean && browserify public/js/app.js | uglifyjs > dist/js/app.js",
     "build:watch": "watchify public/js/app.js -o dist/js/app.js",
@@ -24,5 +25,7 @@
     "morgan": "^1.4.1"
   },
   "devDependencies": {
+    "snazzy": "^3.0.0",
+    "standard": "^6.0.8"
   }
 }
