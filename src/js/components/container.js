@@ -1,6 +1,7 @@
 import React from 'react'
 
 import HaxfredCard from './card'
+import Links from './links'
 
 const Container = React.createClass({
   render: function () {
@@ -10,6 +11,7 @@ const Container = React.createClass({
           <HaxfredCard />
         </div>
         <div id='links' className='ui eleven wide column segment'>
+          <Links />
         </div>
       </div>
     )
