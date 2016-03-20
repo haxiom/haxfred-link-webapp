@@ -6,6 +6,10 @@
   margin-top: 50px;
 }
 
+.feed .ui.message {
+  overflow: scroll;
+}
+
 @media screen and (min-width: 1200px) {
   #haxfred-card {
     position: fixed;

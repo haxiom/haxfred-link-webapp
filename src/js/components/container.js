@@ -10,7 +10,7 @@ const Container = React.createClass({
         <div className='ui five wide column'>
           <HaxfredCard />
         </div>
-        <div id='links' className='ui eleven wide column segment'>
+        <div id='links' className='ui eleven wide column'>
           <Links />
         </div>
       </div>

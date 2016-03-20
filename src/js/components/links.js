@@ -3,6 +3,19 @@ import moment from 'moment'
 import marked from  'marked'
 import createContent from './content'
 
+function generateLabel(type) {
+  switch (type) {
+    case 'youtube':
+      return 'a YouTube video'
+    case 'vimeo':
+      return 'a Vimeo video'
+    case 'image':
+      return 'an image'
+    default:
+      return 'a link'
+  }
+}
+
 const Link = React.createClass({
   rawCaption: function () {
     var rawMarkup = marked(this.props.caption.toString(), { sanitize: true })
@@ -10,24 +23,24 @@ const Link = React.createClass({
   },
   render () {
     let content = createContent(this.props.type, this.props.url)
-    let date = moment(this.props.date).format('dddd, MMMM Do YYYY, h:mm:ss a')
+    let date = moment(this.props.date).fromNow()
 
     return (
-			<div className='item'>
-				<div className='ui small circular image'>
-					<img src={this.props.profileImage} />
-				</div>
-				<div className='content'>
-					<div className='meta'>
-						<span>Posted By <strong>{this.props.author}</strong></span>
-						<span>on {date}</span>
-					</div>
-					<div className='description'>
-						<p dangerouslySetInnerHTML={this.rawCaption()} />
+      <div className="event">
+        <div className="label">
+          <img src={this.props.profileImage} />
+        </div>
+        <div className="content">
+          <div className="summary">
+            {this.props.author} posted {generateLabel(this.props.type)}
+            <div className="date">{date}</div>
+          </div>
+          <div className="extra text">
+            <p dangerouslySetInnerHTML={this.rawCaption()} />
             {content}
-					</div>
-				</div>
-			</div>
+          </div>
+        </div>
+      </div>
     )
   }
 })
@@ -52,7 +65,7 @@ const LinkList = React.createClass({
     })
 
     return (
-      <div className='ui items'>
+      <div className='ui feed'>
         {linkNodes}
       </div>
     )
