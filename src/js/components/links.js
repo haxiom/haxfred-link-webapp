@@ -1,13 +1,13 @@
 import React from 'react'
 import moment from 'moment'
 import marked from  'marked'
-import debounce from 'lodash/debounce'
+import throttle from 'lodash/throttle'
 import createContent from './content'
 import events from '../lib/events'
 
 let body = document.body
 let html = document.documentElement
-const SCROLL_DEBOUNCE_TIME = 15
+const SCROLL_THROTTLE_TIME = 15
 const NUMBER_OF_LINKS_TO_FETCH = 5
 
 function generateLabel(type) {
@@ -119,7 +119,7 @@ const LinkContainer = React.createClass({
 
 
     this.loadLinksFromServer(linksOffset);
-    window.addEventListener('scroll', debounce(this.handleScroll, SCROLL_DEBOUNCE_TIME))
+    window.addEventListener('scroll', throttle(this.handleScroll, SCROLL_THROTTLE_TIME))
     events.on('requestLinks', () => {
       linksOffset  = linksOffset + NUMBER_OF_LINKS_TO_FETCH
       this.loadLinksFromServer(linksOffset);
