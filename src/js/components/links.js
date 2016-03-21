@@ -1,7 +1,14 @@
 import React from 'react'
 import moment from 'moment'
 import marked from  'marked'
+import debounce from 'lodash/debounce'
 import createContent from './content'
+import events from '../lib/events'
+
+let body = document.body
+let html = document.documentElement
+const SCROLL_DEBOUNCE_TIME = 15
+const NUMBER_OF_LINKS_TO_FETCH = 5
 
 function generateLabel(type) {
   switch (type) {
@@ -47,7 +54,7 @@ const Link = React.createClass({
 
 const LinkList = React.createClass({
   render () {
-		let linkNodes = this.props.data.reverse().map((link) => {
+		let linkNodes = this.props.links.map((link) => {
       let profileImage = `/users/images/${link.user.toLowerCase()}`
       if (!link.url) return <div key={link.id}></div>
 
@@ -73,23 +80,54 @@ const LinkList = React.createClass({
 })
 
 const LinkContainer = React.createClass({
-  loadLinksFromServer () {
-    fetch('http://benicio.haxiom.io/api/links').then((response) => {
+  loadLinksFromServer (offset) {
+    let domain = 'http://benicio.haxiom.io/api/links'
+    let endpoint = `${domain}?_offset=${offset}&_limit=${NUMBER_OF_LINKS_TO_FETCH}&_order=createdAt%20DESC`
+    fetch(endpoint).then((response) => {
       return response.json()
     }).then((data) => {
-      console.log(data[0])
-      this.setState({ data })
+      let links = this.state.links.concat(data)
+      this.setState({ links })
+    }).catch((err) => {
+      console.error(err)
     });
   },
+  calculateDocumentHeight () {
+    let height = Math.max(
+      body.scrollHeight, body.offsetHeight,
+      html.clientHeight, html.scrollHeight, html.offsetHeight
+    )
+
+    return {
+      scroll: window.scrollY + window.innerHeight,
+      height
+    }
+  },
+  handleScroll () {
+    let doc = this.calculateDocumentHeight();
+    let offset = Math.floor(doc.height * 0.2);
+
+    if (doc.scroll + offset >= doc.height) {
+      events.emit('requestLinks');
+    }
+  },
   getInitialState () {
-    return {data: []}
+    return {links: []}
   },
   componentDidMount () {
-    this.loadLinksFromServer();
+    let linksOffset = 0
+
+
+    this.loadLinksFromServer(linksOffset);
+    window.addEventListener('scroll', debounce(this.handleScroll, SCROLL_DEBOUNCE_TIME))
+    events.on('requestLinks', () => {
+      linksOffset  = linksOffset + NUMBER_OF_LINKS_TO_FETCH
+      this.loadLinksFromServer(linksOffset);
+    })
   },
 	render () {
     return (
-      <LinkList data={this.state.data} />
+      <LinkList links={this.state.links} />
     )
   }
 })

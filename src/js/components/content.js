@@ -65,12 +65,12 @@ const YouTube = React.createClass({
 
 export default function createContent (type, url) {
   switch (type) {
-    // case 'image':
-    //   return <Image url={url} />
-    // case 'vimeo':
-    //   return <Vimeo url={url} />
-    // case 'youtube':
-    //   return <YouTube url={url} />
+    case 'image':
+      return <Image url={url} />
+    case 'vimeo':
+      return <Vimeo url={url} />
+    case 'youtube':
+      return <YouTube url={url} />
     default:
       return <Article url={url} />
   }
