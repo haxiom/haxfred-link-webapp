@@ -1,20 +1,34 @@
-var PORT = process.env.EXPRESS_PORT || 1337;
-var express = require('express');
-var hbs = require('hbs').__express;
-var static = require('serve-static');
-var router = express.Router;
-var app = express();
+'use strict'
 
-app.set('view engine', 'html');
-app.engine('html', hbs);
+let express = require('express')
+let fs = require('fs')
+let path = require('path')
+let app = express()
 
-app.use(static('dist'));
-app.use(static('public'));
+const PORT = process.env.EXPRESS_PORT || 1337
+const USER_IMAGES_PATH_BASE = `${__dirname}/public/images/users`
+const DEFAULT_USER_IMAGE = `${USER_IMAGES_PATH_BASE}/default.jpg`
 
-app.get('*', function (req, res) {
-  res.render('index');
-});
+app.use(express.static('dist'))
+app.use(express.static('public'))
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, '/views/index.html'))
+})
+
+app.get('/users/images/:name', function (req, res) {
+  let name = req.params.name
+  let imagePath = `${USER_IMAGES_PATH_BASE}/${name}.jpg`
+
+  try {
+    fs.statSync(imagePath)
+  } catch (e) {
+    imagePath = DEFAULT_USER_IMAGE
+  }
+
+  res.sendFile(imagePath)
+})
 
 app.listen(PORT, function () {
-  console.log('Listening at', PORT);
-});
+  console.log('Listening at', PORT)
+})

@@ -1,0 +1,21 @@
+#content {
+  margin-top: 100px;
+}
+
+#haxfred-card {
+  margin-top: 50px;
+}
+
+.feed .ui.message {
+  overflow: scroll;
+}
+
+.feed iframe, .feed img {
+  max-width: 100%;
+}
+
+@media screen and (min-width: 1200px) {
+  #haxfred-card {
+    position: fixed;
+  }
+}
