@@ -54,13 +54,13 @@ const Link = React.createClass({
 
 const LinkList = React.createClass({
   render () {
-		let linkNodes = this.props.links.map((link) => {
+		let linkNodes = this.props.links.map((link, index) => {
       let profileImage = `/users/images/${link.user.toLowerCase()}`
       if (!link.url) return <div key={link.id}></div>
 
       return (
         <Link
-          key={link.id}
+          key={index}
           author={link.user}
           profileImage={profileImage}
           type={link.type}
