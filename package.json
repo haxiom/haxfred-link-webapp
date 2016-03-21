@@ -38,5 +38,10 @@
     "snazzy": "^3.0.0",
     "standard": "^6.0.8",
     "watchify": "^3.7.0"
+  },
+  "standard": {
+    "globals": [
+      "fetch"
+    ]
   }
 }

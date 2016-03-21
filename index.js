@@ -1,8 +1,9 @@
 'use strict'
 
-var express = require('express')
-var fs = require('fs')
-var app = express()
+let express = require('express')
+let fs = require('fs')
+let path = require('path')
+let app = express()
 
 const PORT = process.env.EXPRESS_PORT || 1337
 const USER_IMAGES_PATH_BASE = `${__dirname}/public/images/users`
@@ -12,7 +13,7 @@ app.use(express.static('dist'))
 app.use(express.static('public'))
 
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/views/index.html')
+  res.sendFile(path.join(__dirname, '/views/index.html'))
 })
 
 app.get('/users/images/:name', function (req, res) {

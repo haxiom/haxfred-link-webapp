@@ -1,6 +1,6 @@
 import React from 'react'
 import moment from 'moment'
-import marked from  'marked'
+import marked from 'marked'
 import throttle from 'lodash/throttle'
 import createContent from './content'
 import events from '../lib/events'
@@ -10,7 +10,7 @@ let html = document.documentElement
 const SCROLL_THROTTLE_TIME = 15
 const NUMBER_OF_LINKS_TO_FETCH = 5
 
-function generateLabel(type) {
+function generateLabel (type) {
   switch (type) {
     case 'youtube':
       return 'a YouTube video'
@@ -33,16 +33,16 @@ const Link = React.createClass({
     let date = moment(this.props.date).fromNow()
 
     return (
-      <div className="event">
-        <div className="label">
+      <div className='event'>
+        <div className='label'>
           <img src={this.props.profileImage} />
         </div>
-        <div className="content">
-          <div className="summary">
+        <div className='content'>
+          <div className='summary'>
             {this.props.author} posted {generateLabel(this.props.type)}
-            <div className="date">{date}</div>
+            <div className='date'>{date}</div>
           </div>
-          <div className="extra text">
+          <div className='extra text'>
             <p dangerouslySetInnerHTML={this.rawCaption()} />
             {content}
           </div>
@@ -54,7 +54,7 @@ const Link = React.createClass({
 
 const LinkList = React.createClass({
   render () {
-		let linkNodes = this.props.links.map((link, index) => {
+    let linkNodes = this.props.links.map((link, index) => {
       let profileImage = `/users/images/${link.user.toLowerCase()}`
       if (!link.url) return <div key={link.id}></div>
 
@@ -90,7 +90,7 @@ const LinkContainer = React.createClass({
       this.setState({ links })
     }).catch((err) => {
       console.error(err)
-    });
+    })
   },
   calculateDocumentHeight () {
     let height = Math.max(
@@ -104,11 +104,11 @@ const LinkContainer = React.createClass({
     }
   },
   handleScroll () {
-    let doc = this.calculateDocumentHeight();
-    let offset = Math.floor(doc.height * 0.2);
+    let doc = this.calculateDocumentHeight()
+    let offset = Math.floor(doc.height * 0.2)
 
     if (doc.scroll + offset >= doc.height) {
-      events.emit('requestLinks');
+      events.emit('requestLinks')
     }
   },
   getInitialState () {
@@ -117,18 +117,15 @@ const LinkContainer = React.createClass({
   componentDidMount () {
     let linksOffset = 0
 
-
-    this.loadLinksFromServer(linksOffset);
+    this.loadLinksFromServer(linksOffset)
     window.addEventListener('scroll', throttle(this.handleScroll, SCROLL_THROTTLE_TIME))
     events.on('requestLinks', () => {
-      linksOffset  = linksOffset + NUMBER_OF_LINKS_TO_FETCH
-      this.loadLinksFromServer(linksOffset);
+      linksOffset = linksOffset + NUMBER_OF_LINKS_TO_FETCH
+      this.loadLinksFromServer(linksOffset)
     })
   },
-	render () {
-    return (
-      <LinkList links={this.state.links} />
-    )
+  render () {
+    return <LinkList links={this.state.links} />
   }
 })
 
