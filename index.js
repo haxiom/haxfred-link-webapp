@@ -1,13 +1,13 @@
 'use strict'
 
-let express = require('express')
-let fs = require('fs')
-let path = require('path')
-let app = express()
+var express = require('express')
+var fs = require('fs')
+var path = require('path')
+var app = express()
 
-const PORT = process.env.EXPRESS_PORT || 1337
-const USER_IMAGES_PATH_BASE = `${__dirname}/public/images/users`
-const DEFAULT_USER_IMAGE = `${USER_IMAGES_PATH_BASE}/default.jpg`
+var PORT = process.env.EXPRESS_PORT || 1337
+var USER_IMAGES_PATH_BASE = __dirname + '/public/images/users'
+var DEFAULT_USER_IMAGE = USER_IMAGES_PATH_BASE + '/default.jpg'
 
 app.use(express.static('dist'))
 app.use(express.static('public'))
@@ -17,8 +17,8 @@ app.get('/', function (req, res) {
 })
 
 app.get('/users/images/:name', function (req, res) {
-  let name = req.params.name
-  let imagePath = `${USER_IMAGES_PATH_BASE}/${name}.jpg`
+  var name = req.params.name
+  var imagePath = USER_IMAGES_PATH_BASE + '/' + name + '.jpg'
 
   try {
     fs.statSync(imagePath)
